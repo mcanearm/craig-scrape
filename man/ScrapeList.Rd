@@ -28,7 +28,7 @@ and using CSS selector that you specify, scrapes data from each row into a nice 
 for research and munging purposes. This package extensively uses \code{rvest} functions.
 }
 \examples{
-url <- http://philadelphia.craigslist.org/search/apa
+url <- 'http://philadelphia.craigslist.org/search/apa'
 fields <- c('time', '.hdrlnk', '.housing', 'small', '.price')
 philly.apts <- ScrapeList(url, '.row', fields)
 }

@@ -16,7 +16,7 @@
 #' listed as the name of each column.
 #' 
 #' @examples 
-#' url <- http://philadelphia.craigslist.org/search/apa
+#' url <- 'http://philadelphia.craigslist.org/search/apa'
 #' fields <- c('time', '.hdrlnk', '.housing', 'small', '.price')
 #' philly.apts <- ScrapeList(url, '.row', fields)
 ScrapeList <- function(url, row.selector, fields) {
@@ -25,9 +25,9 @@ ScrapeList <- function(url, row.selector, fields) {
   # Return housing data
   overall.data <- pblapply(fields, function(field){
     field.data <- raw.html %>%
-      rvest::html_nodes(row.selector) %>%
-      rvest::html_node(field) %>%
-      rvest::html_text()
+      html_nodes(row.selector) %>%
+      html_node(field) %>%
+      html_text()
   })
   
   overall.data <- do.call('cbind.data.frame', overall.data)
