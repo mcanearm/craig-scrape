@@ -20,7 +20,7 @@
 #' fields <- c('time', '.hdrlnk', '.housing', 'small', '.price')
 #' philly.apts <- ScrapeList(url, '.row', fields)
 ScrapeList <- function(url, row.selector, fields) {
-  rvest::raw.html <- html(url)
+  raw.html <- html(url)
   
   # Return housing data
   overall.data <- pblapply(fields, function(field){
