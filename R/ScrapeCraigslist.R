@@ -1,14 +1,14 @@
 #' @title
-#' General List scraper
+#' Craigslist Scraper
 #' 
 #' @description
 #' From a general list style page, scrape the first page with desired data using
 #' css selectors.
 #' @details
-#' For websites that come in a 'list' or 'feed' format, this function finds the row on a page,
+#' For Craigslist pages, this function finds the row on a page,
 #' and using CSS selector that you specify, scrapes data from each row into a nice data frame
 #' for research and munging purposes. This package extensively uses \code{rvest} functions.
-#' @param url The link to crawl
+#' @param url A text string of the link to crawl
 #' @param row.selector The CSS element of rows
 #' @param fields A text vector of the CSS fields used to identify wanted information within
 #' the rows.
@@ -18,11 +18,14 @@
 #' @examples 
 #' url <- 'http://philadelphia.craigslist.org/search/apa'
 #' fields <- c('time', '.hdrlnk', '.housing', 'small', '.price')
-#' philly.apts <- ScrapeList(url, '.row', fields)
-ScrapeList <- function(url, row.selector, fields) {
-  raw.html <- html(url)
+#' philly.apts <- ScrapeCraigslist(url, '.row', fields)
+#' 
+#' # Clean up the price data
+#' philly.apts[, 5] <- as.integer(gsub('\\$', '', philly.apts[, 5]))
+ScrapeCraigslist <- function(url, row.selector, fields) {
+  raw.html <- rvest::html(url)
   
-  # Return housing data
+  # Return data by css selector on the page
   overall.data <- pblapply(fields, function(field){
     field.data <- raw.html %>%
       html_nodes(row.selector) %>%
