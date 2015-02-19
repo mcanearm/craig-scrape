@@ -1,2 +1,2 @@
-# shoppeR
-A general scraping tool for RSS feeds - written for product feeds, but can be used in general with any 'feed' based service.
+# Craig-Scrape
+A small package for scraping Craigslist using `R` and the `rvest` package.
