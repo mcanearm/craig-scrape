@@ -1,10 +1,10 @@
-Package: shoppeR
+Package: CraigScrape
 Type: Package
 Title: What the package does (short line)
-Version: 1.0
+Version: 0.5
 Date: 2015-01-25
-Author: Who wrote it
-Maintainer: Who to complain to <yourfault@somewhere.net>
-Description: More about what it does (maybe more than one line)
+Author: Matthew McAnear
+Maintainer: Who to complain to <mcanearm@gmail.com>
+Description: Simple wrapper for scraping Craigslist. The package has only been tested on apartment pages, but should work across the site.
 Depends: rvest, dplyr, pbapply
-License: What license is it under?
+License: No license.

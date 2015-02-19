@@ -2,16 +2,20 @@
 #' Craigslist Scraper
 #' 
 #' @description
-#' From a general list style page, scrape the first page with desired data using
-#' css selectors.
+#' From a general list style page on Craigslist, scrape the url with desired 
+#' data using css selectors.
 #' @details
 #' For Craigslist pages, this function finds the row on a page,
-#' and using CSS selector that you specify, scrapes data from each row into a nice data frame
-#' for research and munging purposes. This package extensively uses \code{rvest} functions.
+#' and using CSS selector that you specify, scrapes data from each row into a 
+#' nice data frame for research and munging purposes. This function extensively 
+#' uses \code{rvest} functions.
+#' 
+#' To get the CSS selectors, I used the SelectorGadget chrome extension. For
+#' more info, see \href{http://selectorgadget.com}{selectorgadget.com}.
 #' @param url A text string of the link to crawl
-#' @param row.selector The CSS element of rows
-#' @param fields A text vector of the CSS fields used to identify wanted information within
-#' the rows.
+#' @param row.selector The CSS selector that demarcates the rows on a page.
+#' @param fields A text vector of the CSS fields used to identify desired 
+#' information within the rows.
 #' @return A single data frame containing all the elements scraped, with the CSS selector
 #' listed as the name of each column.
 #' 
